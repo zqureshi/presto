@@ -253,6 +253,7 @@ public class TestStringFunctions
         assertFunction("SPLIT_TO_MAP('=', ',', '=')", expectedType, ImmutableMap.of("", ""));
         assertFunction("SPLIT_TO_MAP('key=>value', ',', '=>')", expectedType, ImmutableMap.of("key", "value"));
         assertFunction("SPLIT_TO_MAP('key => value', ',', '=>')", expectedType, ImmutableMap.of("key ", " value"));
+        assertFunction("SPLIT_TO_MAP('foo=bar%3dbaz', '&', '=')", expectedType, ImmutableMap.of("foo", "bar%3dbaz"));
 
         // Test SPLIT_TO_MAP for non-ASCII
         assertFunction("SPLIT_TO_MAP('\u4EA0\u4EFF\u4EA1', '\u4E00', '\u4EFF')", expectedType, ImmutableMap.of("\u4EA0", "\u4EA1"));
